@@ -18,6 +18,10 @@ AI 技能的质量不靠运气，靠工艺。熔炉把"建技能"这件事本身
 | B 口述想法 | 一个想法，口述迭代 | `references/forge-from-idea.md` |
 | C 改造他人作品 | 别人的 Skill/MCP 仓库 | `references/forge-from-existing.md`（许可证+安全双闸门） |
 
+**场景 A 的铁律**：只读原文，不读二手总结。别人嚼过的知识点只剩结论，丢掉的是作者的判断过程和边界条件——而技能值钱的恰恰是后者。
+
+**场景 C 的红线**：许可证审查与安全审计未完成前，禁止进入改写环节。
+
 ## 两类产物
 
 - **Skill**：方法论、思维框架、流程纪律类能力（标准三段式：SKILL.md + references/ + assets/）
@@ -43,14 +47,48 @@ skill-forge/
     └── mcp-skeleton/             # MCP 骨架模板（结构+要点）
 ```
 
+## 安装
+
+**扣子（Coze）**
+技能已发布到「我的技能」，在 Agent 技能配置里直接勾选「昊哥-技能熔炉」。
+
+**dsh（DeepSeek Harness）**
+把本目录整体放入 dsh 的 skills 目录；如需随插件分发，按 `references/platform-adapters.md` 里的 cordis.patch.yml 范式打薄壳。
+
+**Claude Code**
+```bash
+git clone <本仓库地址> ~/.claude/skills/skill-forge
+```
+
+**其他 MCP 客户端**
+本仓库本体是 Skill；MCP 产物由熔炉现场生成，按生成产物的 README 配置即可。
+
 ## 使用方式
 
-在任意 Agent 环境对模型说：**"我要建个技能"** / **"把这本书变成技能"** / **"把这个 skill 改成我的"**——熔炉接管后续流程。
+在任意 Agent 环境对模型说：
+
+- "我要建个技能" / "帮我做个 MCP 插件"
+- "把这本书变成技能"
+- "把这个 skill 改成我的"
+- "把这个想法做成工具"
+
+熔炉接管后续流程：三要素澄清 → 场景手册 → 建造 → 验收过闸 → 平台套壳。
 
 ## 状态
 
-v0.1.0 骨架版。首个实战：梁宁《产品思维30讲》→ Skill（书转场景验证）。
+v0.1.0 骨架版。
+
+首个实战已验证全链路：梁宁《产品思维30讲》42 篇原文 → 36 个能力点蒸馏 → Skill 建造 → 验收实测 → GitHub + 扣子双平台发布（产物见 [liangning-product-thinking](https://github.com/gxh98/liangning-product-thinking)）。
+
+## 致谢
+
+- 工艺范式参考：[归藏 op7418](https://github.com/op7418) 的 guizang-ppt-skill、Generative-UI-MCP、dsh-guizang-design。学到了三件事：Skill 是流程不是功能、知识型 MCP 要按需加载、一源多壳才能跨平台。
+- 规范依据：Anthropic Agent Skills 规范、Model Context Protocol 官方规范。
 
 ## License
 
-MIT
+MIT，见 [LICENSE](LICENSE)。
+
+---
+
+<sub>昊哥 AI 原生工作室 · 09 号 Agent 出品</sub>
